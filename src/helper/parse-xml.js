@@ -7,7 +7,7 @@
 
 import isEmptyString from './is-empty-string'
 
-function parseXML (xml, option = {}) {
+export default function parseXML (xml, option = {}) {
   if (xml.documentElement != null) {
     return xml.documentElement
   }
@@ -69,5 +69,3 @@ function isParseError (parsedDocument, parserInstance) {
     // Because it will have failed before
   }
 }
-
-export default parseXML

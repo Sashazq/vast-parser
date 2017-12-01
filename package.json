@@ -6,6 +6,9 @@
   "author": "Kyungwook Park <parksama@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack --watch",
+    "prod": "webpack --optimize-minimize",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
     "lint:msg": "validate-commit-msg",
     "commit": "git cz",
@@ -35,6 +38,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.24.0",
     "browser-env": "^2.0.25",
+    "clean-webpack-plugin": "^0.1.17",
     "commitizen": "^2.9.6",
     "conventional-changelog-cli": "^1.2.0",
     "es3ify-loader": "^0.2.0",
@@ -46,14 +50,17 @@
     "eslint-plugin-node": "^4.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
-    "husky": "^0.13.2",
+    "html-webpack-plugin": "^2.30.1",
     "json-beautify": "^1.0.1",
     "sinon": "^2.1.0",
     "validate-commit-msg": "^2.11.2",
-    "webpack": "^2.3.2"
+    "webpack": "^3.7.0",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "ava": "^0.18.2",
+    "babel-eslint": "^8.0.2",
     "jxon": "^2.0.0-beta.4"
   },
   "ava": {

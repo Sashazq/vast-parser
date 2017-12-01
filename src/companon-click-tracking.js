@@ -8,4 +8,4 @@ class CompanionClickTracking {
   }
 }
 
-export default CompanionClickTracking
+export {CompanionClickTracking}

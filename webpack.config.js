@@ -1,20 +1,14 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 let webpack = require('webpack')
-let path = require('path')
 let pkg = require('./package.json')
-let dateFormat = require('dateformat')
 
 module.exports = {
   target: 'web',
   entry: path.resolve(__dirname, 'src/index.js'),
-  node: {
-    console: false,
-    global: false,
-    process: false,
-    Buffer: false,
-    __filename: false,
-    __dirname: false,
-    setImmediate: false
-  },
+  devtool: 'eval',
   module: {
     rules: [
       {
@@ -41,21 +35,43 @@ module.exports = {
   },
   stats: {
     colors: true,
-    reasons: true,
-    modules: false
+    // reasons: true,
+    // modules: false,
+    chunks: false
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: true
-      }
-    }),
-    new webpack.BannerPlugin(`${pkg.name} v${pkg.version} ${dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss")}`)
+    // new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'DevPage',
+      chunks: [],
+      filename: 'index.html',
+      template: './index.html'
+    })
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: `${pkg.name}.min.js`,
+    chunkFilename: `${pkg.name}.bundle.js`,
     library: `VASTParser`,
     libraryTarget: 'umd'
+  },
+  devServer: {
+    contentBase: './dist',
+    stats: {
+      colors: true,
+      hash: false,
+      version: false,
+      timings: true,
+      assets: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false,
+      children: false,
+      cached: false,
+      reasons: false,
+      source: false,
+      errorDetails: true,
+      chunkOrigins: false
+    }
   }
 }
