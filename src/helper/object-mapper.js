@@ -16,13 +16,13 @@ function objectMapper (node) {
     /**
      * mapping to an instance of `constructor`
      *
-     * @param {Object} Klass
+     * @param {Object} Element
      * @returns {Array} Returns the array of `constructor` instances
      */
-    to: function (Klass) {
+    to: function (Element) {
       return (isArray(node) ? node : [node])
         .filter((item) => isDefined(item))
-        .map((item) => new Klass(item))
+        .map((item) => new Element(item))
     }
   }
 }
