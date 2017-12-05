@@ -8,7 +8,7 @@ let pkg = require('./package.json')
 module.exports = {
   target: 'web',
   entry: path.resolve(__dirname, 'src/index.js'),
-  devtool: 'eval',
+  devtool: 'source-map',
   module: {
     rules: [
       {

@@ -8,7 +8,8 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack --watch",
-    "prod": "webpack --optimize-minimize",
+    "prod": "webpack",
+    "prod-min": "webpack --optimize-minimize",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
     "lint:msg": "validate-commit-msg",
     "commit": "git cz",

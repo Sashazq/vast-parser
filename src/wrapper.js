@@ -29,7 +29,7 @@ class Wrapper {
       this.extensions = objectMapper(node.extensions.extension).to(Extension)
     }
 
-    this.creatives = objectMapper(node.creatives).to(Creative).shift()
+    this.creatives = objectMapper(node.creatives.creative).to(Creative).shift()
 
     // Optional attrs
     this.followAdditionalWrappers = node.attr('followAdditionalWrappers') || true
