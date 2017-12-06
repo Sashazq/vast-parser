@@ -15,7 +15,7 @@ class Wrapper {
    */
   constructor (node) {
     // Required elements
-    this.impressions = objectMapper(node.impression).to(Impression)
+    this.impression = objectMapper(node.impression).to(Impression)
     this.VASTAdTagURI = isDefined(node.vASTAdTagURI) ? node.vASTAdTagURI.keyValue : undefined
 
     // Optional elements
@@ -29,7 +29,7 @@ class Wrapper {
       this.extensions = objectMapper(node.extensions.extension).to(Extension)
     }
 
-    this.creatives = objectMapper(node.creatives.creative).to(Creative).shift()
+    this.creatives = objectMapper(node.creatives.creative).to(Creative)
 
     // Optional attrs
     this.followAdditionalWrappers = node.attr('followAdditionalWrappers') || true

@@ -40,7 +40,7 @@ class InLine {
     }
 
     if (node.error) {
-      this.error = objectMapper(node.error).to(Error)
+      this.errors = objectMapper(node.error).to(Error)
     }
 
     this.viewableImpression = objectMapper(node.viewableImpression).to(ViewableImpression).shift()
