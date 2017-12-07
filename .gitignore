@@ -16,5 +16,4 @@ npm-debug.log
 v8.log
 
 package-lock.json
-dist
 .idea
